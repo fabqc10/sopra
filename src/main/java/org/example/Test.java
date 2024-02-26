@@ -47,7 +47,7 @@ public class Test {
         }
 
         int menores = personas.size() - mayores;
-        int femeninasMenores = mujeres - (personas.size() - masculinasMayores);
+        int femeninasMenores = mujeres - masculinasMayores;
 
         double porcentajeMayores = ((double) mayores / personas.size()) * 100;
         double porcentajeMujeres = ((double) mujeres / personas.size()) * 100;
