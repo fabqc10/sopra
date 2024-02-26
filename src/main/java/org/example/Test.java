@@ -30,34 +30,36 @@ public class Test {
 
     public static void leerPersonas(List<Persona> personas) {
         int mayores = 0;
-        int masculinasMayores = 0;
-        int mujeres = 0;
+        int menores = 0;
+        int masculinosMayores = 0;
+        int femeninasMayores = 0;
+        int femeninasMenores = 0;
 
-        for (Persona persona : personas) {
+        for (Persona persona: personas){
             if (persona.getEdad() >= 18) {
-                mayores++;
-                if (persona.getSexo().equalsIgnoreCase("Hombre")) {
-                    masculinasMayores++;
+                mayores ++;
+                if (persona.getSexo().equalsIgnoreCase("Hombre")){
+                    masculinosMayores++;
                 } else {
-                    mujeres++;
+                    femeninasMayores++;
                 }
-            } else if (persona.getSexo().equalsIgnoreCase("Mujer")) {
-                mujeres++;
+            } else {
+                menores++;
+                if (persona.getSexo().equals("Mujer")){
+                    femeninasMenores++;
+                }
             }
         }
 
-        int menores = personas.size() - mayores;
-        int femeninasMenores = mujeres - masculinasMayores;
-
         double porcentajeMayores = ((double) mayores / personas.size()) * 100;
-        double porcentajeMujeres = ((double) mujeres / personas.size()) * 100;
+        double porcentajeMujeres = ((double)femeninasMayores + femeninasMenores) / personas.size() * 100;
 
-        System.out.println("Personas mayores de edad: " + mayores);
-        System.out.println("Personas menores de edad: " + menores);
-        System.out.println("Personas masculinas mayores de edad: " + masculinasMayores);
-        System.out.println("Personas femeninas menores de edad: " + femeninasMenores);
-        System.out.println("Porcentaje que representan las personas mayores: " + porcentajeMayores);
-        System.out.println("Porcentaje que representan las mujeres: " + porcentajeMujeres);
+        System.out.println("Cantidad de personas mayores de edad: " + mayores);
+        System.out.println("Cantidad de personas menores de edad: " + menores);
+        System.out.println("Cantidad de personas masculinas mayores de edad: " + masculinosMayores);
+        System.out.println("Cantidad de personas femeninas menores de edad: " + femeninasMenores);
+        System.out.println("Porcentaje que representan las personas mayores de edad respecto al total de personas: " + porcentajeMayores + "%");
+        System.out.println("Porcentaje que representan las mujeres respecto al total de personas: " + porcentajeMujeres + "%");
     }
 
 //    3.
